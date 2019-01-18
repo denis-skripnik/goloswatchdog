@@ -1,5 +1,5 @@
 {
-    ws : "wss://ws.viz.ropox.tools",
+    ws : "wss://ws.golos.ropox.tools",
 
 
     telegram: {

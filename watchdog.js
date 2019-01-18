@@ -1,12 +1,12 @@
 const global = require("basescript");
 
-global.initApp("vizwatchdog");
+global.initApp("goloswatchdog");
 const log = global.getLogger("index");
 const CONFIG = global.CONFIG;
-const viz = require("viz-world-js");
+const golos = require("golos-world-js");
 
 if(CONFIG.ws) {
-    viz.config.set("websocket", CONFIG.ws);
+    golos.config.set("websocket", CONFIG.ws);
 }
 
 const telegram = require("./telegram");
@@ -19,7 +19,7 @@ async function processMessage(chat, msg) {
         await telegram.send(chat.chat_id, "Введенное не является именем делегата");
         return;
     }
-    const witness = await viz.api.getWitnessByAccountAsync(msg);
+    const witness = await golos.api.getWitnessByAccountAsync(msg);
     if(!witness || !witness.owner || witness.owner != msg) {
         await telegram.send(chat.chat_id, "Такой делегат не найден");
         return;
@@ -77,10 +77,10 @@ async function run() {
 
     while (true) {
         try {
-            PROPS = await viz.api.getDynamicGlobalPropertiesAsync();
+            PROPS = await golos.api.getDynamicGlobalPropertiesAsync();
             bn = PROPS.head_block_number;
 
-            const witnesses = await viz.api.getWitnessesByVoteAsync("",100);
+            const witnesses = await golos.api.getWitnessesByVoteAsync("",100);
 
             for(let w of witnesses) {
 

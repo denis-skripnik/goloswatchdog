@@ -1,5 +1,5 @@
 {
-  "name": "vizwatchdog",
+  "name": "goloswatchdog",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gropox/vizwatchdog.git"
+    "url": "git+https://github.com/gropox/goloswatchdog.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gropox/vizwatchdog/issues"
+    "url": "https://github.com/gropox/goloswatchdog/issues"
   },
-  "homepage": "https://github.com/gropox/vizwatchdog#readme",
+  "homepage": "https://github.com/gropox/goloswatchdog#readme",
   "dependencies": {
     "basescript": "0.0.4",
     "nedb": "^1.8.0",
     "telebot": "^1.2.6",
-    "viz-world-js": "^0.9.9"
+    "golos-world-js": "^0.9.9"
   }
 }

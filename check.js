@@ -4,7 +4,7 @@ const log = global.getLogger("checks");
 const telegram = require("./telegram");
 const memory = require("./memory");
 const m = require("./messages");
-const viz = require("viz-world-js");
+const golos = require("golos-world-js");
 
 async function checkMissed(witness, saved) {
     /// CHECK MISSED
@@ -31,8 +31,8 @@ async function checkMissed(witness, saved) {
 }
 
 async function sendVersions(chat) {
-    const so = await viz.api.getWitnessScheduleAsync();
-    const witnesses = await viz.api.getWitnessesByVoteAsync("", 100);
+    const so = await golos.api.getWitnessScheduleAsync();
+    const witnesses = await golos.api.getWitnessesByVoteAsync("", 100);
 
     const acc = witnesses.reduce((acc, w, i) => {
         acc.all[w.running_version] = ++acc.all[w.running_version] || 1;
@@ -84,7 +84,7 @@ async function checkVersion(witness, saved) {
     }    
 }
 
-const EMPTY_KEY = "VIZ1111111111111111111111111111111114T1Anm";
+const EMPTY_KEY = "golos1111111111111111111111111111111114T1Anm";
 
 async function checkSigningKey(witness, saved) {
 
