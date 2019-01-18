@@ -19,7 +19,12 @@ async function checkMissed(witness, saved) {
             if(!chat.isWatching(witness.owner)) {return};
             let username = (chat.witness == witness.owner?" (@"+chat.username+")":"");
             let text_blocks = m.get_text_blocks(missed);
-            await telegram.send(chat.chat_id, `Делегат ${witness.owner}${username} пропустил ${missed} ${text_blocks}!`);
+            await telegram.send(chat.chat_id, `Делегат ${witness.owner}${username} пропустил ${missed} ${text_blocks}!
+
+help - справка по командам.
+
+Автор бота: @gropox (ropox на Голосе),
+Адаптировал для Голоса: @skripnikdenis (denis-skripnik на Голосе).`);
         }
 
         let chats = await memory.loadChats();
