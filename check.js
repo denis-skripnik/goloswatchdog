@@ -4,7 +4,7 @@ const log = global.getLogger("checks");
 const telegram = require("./telegram");
 const memory = require("./memory");
 const m = require("./messages");
-const golos = require("golos-world-js");
+const golos = require("golos-js");
 
 async function checkMissed(witness, saved) {
     /// CHECK MISSED
@@ -21,7 +21,7 @@ async function checkMissed(witness, saved) {
             let text_blocks = m.get_text_blocks(missed);
             await telegram.send(chat.chat_id, `Делегат ${witness.owner}${username} пропустил ${missed} ${text_blocks}!
 
-help - справка по командам.
+/help - справка по командам.
 
 Автор бота: @gropox (ropox на Голосе),
 Адаптировал для Голоса: @skripnikdenis (denis-skripnik на Голосе).`);
@@ -41,7 +41,7 @@ async function sendVersions(chat) {
 
     const acc = witnesses.reduce((acc, w, i) => {
         acc.all[w.running_version] = ++acc.all[w.running_version] || 1;
-        if(i < 11) {
+        if(i < 19) {
             acc.top[w.running_version] = ++acc.top[w.running_version] || 1;
         }
         return acc;
@@ -89,7 +89,7 @@ async function checkVersion(witness, saved) {
     }    
 }
 
-const EMPTY_KEY = "golos1111111111111111111111111111111114T1Anm";
+const EMPTY_KEY = "GLS1111111111111111111111111111111114T1Anm";
 
 async function checkSigningKey(witness, saved) {
 

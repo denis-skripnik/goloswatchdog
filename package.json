@@ -20,6 +20,6 @@
     "basescript": "0.0.4",
     "nedb": "^1.8.0",
     "telebot": "^1.2.6",
-    "golos-world-js": "^0.9.9"
+    "golos-js": "^0.7.7"
   }
 }

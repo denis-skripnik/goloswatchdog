@@ -3,7 +3,7 @@ const global = require("basescript");
 global.initApp("goloswatchdog");
 const log = global.getLogger("index");
 const CONFIG = global.CONFIG;
-const golos = require("golos-world-js");
+const golos = require("golos-js");
 
 if(CONFIG.ws) {
     golos.config.set("websocket", CONFIG.ws);
@@ -45,7 +45,7 @@ async function onMsg(msg) {
         switch(msg.text) {
             case "/start": {
                 chat.username = username;
-                await telegram.send(chat_id, "Привет, я бот, который наблюдает за делегатами. Введи имя делегата, если хочешь получать персонализированные уведомления.")
+                await telegram.send(chat_id, "Привет, я бот, который наблюдает за делегатами. Введи имя делегата, если хочешь получать персонализированные уведомления. /help - список команд.")
             }; break;
             case "/help": {
                 await telegram.send(chat_id, m.help())
