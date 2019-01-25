@@ -15,6 +15,7 @@
 - Выполнить команду в папке бота через SSH:
 npm install
 - config.json5.example переименовать в config.json5
+- В том файле вписать свой Telegram id и токен бота.
 - Выполнить команду запуска:
 node watchdog
 или
